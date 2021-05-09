@@ -1,5 +1,4 @@
 import * as T from "../lib/three@0.128.0.min.js"
-import { debounce } from "./utils.js"
 
 // -- constants --
 const kFov = 75
@@ -56,6 +55,7 @@ export function init(id, scene) {
   // add to dom
   $mEl.appendChild(mRenderer.domElement)
 
+  // exports
   return {
     get ref() { return $mEl },
     draw,

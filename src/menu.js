@@ -11,7 +11,6 @@ export const Types = {
 
 // -- impls --
 export class Menu {
-
   // -- props --
   // options = null
 

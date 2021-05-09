@@ -39,7 +39,7 @@ export function init() {
 
   // add figure to scene
   mFigure = new Figure()
-  mFigure.ref.rotation.y = 0.5
+  mFigure.ref.rotation.y = -Math.PI / 4
   mScene.add(mFigure.ref)
 
   // add helpers, invisible by default
@@ -105,15 +105,11 @@ function setColors(colors) {
 
   const light = mLight.color
   light.setHex(colors.light)
-
-  const mat = material().ref
-  mat.color.setHex(colors.figure)
-  mat.emissive.setHex(colors.glow)
 }
 
 function setGlowIntensity(emission) {
-  const mat = material().ref
-  mat.emissiveIntensity = emission
+  // const mat = material().ref
+  // mat.emissiveIntensity = emission
 }
 
 // -- c/debug

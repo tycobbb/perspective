@@ -10,16 +10,18 @@ export function material() {
     return mInstance
   }
 
-  // set props
-  mMaterial = new T.MeshStandardMaterial({
-    color: 0xff00ff,
-    emissive: 0xafaf00,
-    emissiveIntensity: 0.0,
-  })
-
   mInstance = {
     get ref() { return mMaterial },
+    init,
   }
 
   return mInstance
+}
+
+// -- commands --
+function init(assets) {
+  mMaterial = new T.ShaderMaterial({
+    vertexShader: assets.figure.vert,
+    fragmentShader: assets.figure.frag,
+  })
 }

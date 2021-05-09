@@ -1,9 +1,10 @@
-import { loadEl } from "./load.js"
+import { loadAssets, loadEl } from "./load.js"
 import { init as initScene } from "./scene.js"
 import { init as initView } from "./view.js"
 import { init as initColors } from "./colors.js"
 import { init as initMore } from "./more.js"
 import { init as initParams } from "./params.js"
+import { material } from "./material.js"
 
 // -- props -
 let mTime = null
@@ -23,14 +24,17 @@ let mColors = null
 let $mMain = null
 
 // -- lifetime --
-function main() {
+function main(assets) {
   console.debug("start")
 
   // capture els
   $mMain = document.getElementById("main")
   setTimeout(() => toggleUi(true))
 
-  // initialize
+  // init shared components
+  material().init(assets)
+
+  // init components
   mScene = initScene()
   mView = initView("view", mScene)
   mParams = initParams()
@@ -182,10 +186,16 @@ function setButtonTitle($el, title) {
 // -- boostrap --
 (async function load() {
   // wait for the window and all assets
-  const [_w] = await Promise.all([
+  const [_w, assets] = await Promise.all([
     loadEl(window),
+    loadAssets({
+      figure: {
+        frag: "./src/fig.frag",
+        vert: "./src/fig.vert",
+      }
+    })
   ])
 
   // then start
-  main()
+  main(assets)
 })()

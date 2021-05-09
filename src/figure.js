@@ -10,7 +10,7 @@ export class Figure {
   // -- lifetime --
   constructor() {
     // create geometry
-    const geometry = new T.BoxGeometry(1.0, 1.0)
+    const geometry = new T.BoxGeometry()
 
     // build mesh
     const mesh = new T.Mesh(geometry, material().ref)
