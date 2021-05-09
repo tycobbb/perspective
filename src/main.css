@@ -1,0 +1,262 @@
+/* resets */
+body, h1, h2, h3, p {
+  margin: 0;
+}
+
+/* global */
+body {
+  background-color: #bebebe;
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: lighter;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: lighter;
+}
+
+/* layout */
+.Main {
+  width: 100%;
+  height: 100%;
+}
+
+.Main-view {
+  height: 100%;
+}
+
+.Main-ui {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.Main-view > * {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.Main-gutter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 100vh;
+  opacity: 1.0;
+  transition: opacity 0.05s;
+  pointer-events: all;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+.Main-gutter::-webkit-scrollbar {
+  display: none;
+}
+
+.Main.is-ui-hidden .Main-gutter {
+  opacity: 0.0;
+}
+
+.Main-gutter > p {
+  color: white;
+}
+
+.Main-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  opacity: 0.0;
+  background-color: black;
+  pointer-events: all;
+}
+
+.Main-toggle:hover {
+  animation: Blink 0.3s infinite alternate;
+}
+
+@keyframes Blink {
+  from {
+    opacity: 0.0;
+  }
+  to {
+    opacity: 1.0;
+  }
+}
+
+/* Options */
+.Options {
+  min-width: 170px;
+  max-width: 200px;
+  margin: 0 50px;
+}
+
+.Options h1 {
+  margin-bottom: 20px;
+}
+
+.Options h2 {
+  margin-bottom: 15px;
+  border-bottom: 1px dotted black;
+}
+
+.Options-group + .Options-group {
+  margin-top: 30px;
+}
+
+/* Field */
+.Field {
+  display: flex;
+  flex-direction: column;
+}
+
+.Field + .Field {
+  margin-top: 15px;
+}
+
+.Field-title {
+  margin-bottom: 8px;
+  font-size: 0.85em;
+  letter-spacing: 1px;
+}
+
+.Field-line {
+  display: flex;
+  align-items: center;
+}
+
+.Field-input {
+  width: 100%;
+  height: 18px;
+  border: none;
+  font-family: monospace;
+  background-color: #ffffff55;
+}
+
+.Field-prompt {
+  margin-left: 5px;
+  font-size: 0.85em;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+input[type="checkbox"].Field-input {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  width: 18px;
+}
+
+input[type="checkbox"].Field-input:hover {
+  opacity: 0.8;
+}
+
+input[type="checkbox"].Field-input:checked {
+  background-color: white;
+}
+
+.Field-rangeDivider {
+  margin-right: 5px;
+  font-family: monospace;
+  cursor: pointer;
+}
+
+.Field-rangeDivider::after {
+  content: "..";
+}
+
+.Field-rangeDivider:hover::after {
+  content: "==";
+}
+
+/* Select */
+.Select {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.Select::after {
+  content: "<:>";
+  position: absolute;
+  right: 4px;
+  font-family: monospace;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.Select-input {
+  flex: 1;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  padding: 0;
+  background-color: unset;
+  font-family: monospace;
+}
+
+@-moz-document url-prefix() {
+  .Select-input {
+    margin-top: 2px;
+    margin-left: -4px;
+  }
+}
+
+/* Button */
+.Button {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0px;
+  border-bottom: 1px transparent dotted;
+  cursor: pointer;
+}
+
+.Button-icon {
+  font-family: monospace;
+}
+
+.Button:hover {
+  border-bottom-color: black;
+}
+
+.Button::after {
+  content: "click!";
+  display: none;
+  font-family: monospace;
+}
+
+.Button:hover::after {
+  display: block;
+}
+
+/* ColorPicker */
+.ColorPicker-idx {
+  font-family: monospace;
+  font-weight: 600;
+}
+
+/* custom */
+.ColorPicker-custom {
+  display: none;
+  width: 100%;
+  height: 19.2px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+.ColorPicker.is-custom .ColorPicker-custom {
+  display: block;
+}

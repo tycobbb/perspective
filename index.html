@@ -1,0 +1,70 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>perspective</title>
+  <link href="./src/main.css" rel="stylesheet">
+  <script type="module" src="./src/main.js"></script>
+</head>
+
+<body>
+  <main id="main" class="Main is-ui-hidden">
+    <!-- view -->
+    <section id="view" class="Main-view"></section>
+
+    <!-- ui -->
+    <section class="Main-ui">
+      <div class="Main-gutter">
+        <div class="Options">
+          <!-- params -->
+          <section class="Options-group">
+            <h1>params</h1>
+            <div id="params"></div>
+          </section>
+        </div>
+      </div>
+
+      <div class="Main-gutter">
+        <div class="Options">
+          <!-- colors -->
+          <section class="Options-group">
+            <h1>colors</h1>
+            <div id="colors"></div>
+          </section>
+
+          <!-- more -->
+          <section class="Options-group">
+            <h1>more</h1>
+            <div id="more"></div>
+          </section>
+
+          <!-- buttons -->
+          <section class="Options-group">
+            <h1>buttons</h1>
+
+            <div id="buttons">
+              <a id="pause" class="Button">
+                <div><span class="Button-icon">&gt</span> <span class="Button-text">pause</span></div>
+              </a>
+
+              <a id="debug" class="Button">
+                <div><span class="Button-icon">&gt</span> <span class="Button-text">debug</span></div>
+              </a>
+
+              <a id="clear" class="Button">
+                <div><span class="Button-icon">&gt</span> <span class="Button-text">clear</span></div>
+              </a>
+
+              <a id="shadows" class="Button">
+                <div><span class="Button-icon">&gt</span> <span class="Button-text">shadows</span></div>
+              </a>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- toggle -->
+      <a id="toggle-ui" class="Main-toggle"></a>
+    </section>
+  </main>
+</body>
+</html>
