@@ -17,7 +17,9 @@ void main() {
   vec4 mvPos = modelViewMatrix * vec4(position, 1.0);
   gl_Position = projectionMatrix * mvPos;
 
-  // padd projected depth
+  // add projected pos
   vPos = gl_Position.xyz;
-  vDepth = gl_Position.z;
+
+  // add object space depth
+  vDepth = (modelMatrix * vec4(position, 1.0)).z;
 }

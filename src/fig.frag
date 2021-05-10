@@ -28,12 +28,18 @@ void set(vec3 vec) {
 
 // failure mode
 void main() {
-  float band = vDepth;
-
+  // create bands
+  float band = vPos.z;
   band = cos(16.0 * (band * M_PI));
   band = (band + 1.0) / 2.0;
 
-  if (band >= 0.5) {
+  // eval model-space depth
+  float depth = 1.0 - (vDepth + 1.0) / 2.0;
+  depth *= 1.8;
+  // float depth = 0.5;
+
+  // draw depth-scaled banding
+  if (band >= depth) {
     set(1.0);
   } else {
     discard;
