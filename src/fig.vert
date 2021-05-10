@@ -8,8 +8,16 @@ varying float vDepth;
 // -- program --
 void main() {
   vUv = uv;
-  vNormal = normal;
+
+  // pass projected normal
+  vec4 mvNormal = modelViewMatrix * vec4(normal, 0.0);
+  vNormal = normalize((projectionMatrix * mvNormal).xyz);
+
+  // pass projected pos
   vec4 mvPos = modelViewMatrix * vec4(position, 1.0);
-  vDepth = -mvPos.z;
   gl_Position = projectionMatrix * mvPos;
+
+  // padd projected depth
+  vPos = gl_Position.xyz;
+  vDepth = gl_Position.z;
 }

@@ -4,7 +4,8 @@ import * as T from "../lib/three@0.128.0.min.js"
 const kFov = 75
 const kNearPlane = 0.1
 const kFarPlane = 1000.0
-const kInitialZoom = 5.0
+const kInitialZoom = 2.5
+const kInitialViewpoint = 5.0
 const kDirection = new T.Vector3(0.0, 2.0, 5.0).normalize()
 
 // -- deps --
@@ -78,5 +79,5 @@ function zoom(translation) {
   pos.setScalar(0.0)
   pos.addScaledVector(kDirection, mZoom)
 
-  mCamera.lookAt(0.0, 0.5 + (mZoom / kInitialZoom - 1.0), 0.0)
+  mCamera.lookAt(0.0, 0.5 + (mZoom / kInitialViewpoint - 1.0), 0.0)
 }

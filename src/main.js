@@ -29,7 +29,7 @@ function main(assets) {
 
   // capture els
   $mMain = document.getElementById("main")
-  setTimeout(() => toggleUi(true))
+  // setTimeout(() => toggleUi(true))
 
   // init shared components
   material().init(assets)
